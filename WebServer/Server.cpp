@@ -1,5 +1,4 @@
-// @Author Lin Ya
-// @Email xxbbb@vip.qq.com
+
 #include "Server.h"
 #include <arpa/inet.h>
 #include <netinet/in.h>
@@ -44,17 +43,7 @@ void Server::handNewConn() {
     EventLoop *loop = eventLoopThreadPool_->getNextLoop();
     LOG << "New connection from " << inet_ntoa(client_addr.sin_addr) << ":"
         << ntohs(client_addr.sin_port);
-    // cout << "new connection" << endl;
-    // cout << inet_ntoa(client_addr.sin_addr) << endl;
-    // cout << ntohs(client_addr.sin_port) << endl;
-    /*
-    // TCP的保活机制默认是关闭的
-    int optval = 0;
-    socklen_t len_optval = 4;
-    getsockopt(accept_fd, SOL_SOCKET,  SO_KEEPALIVE, &optval, &len_optval);
-    cout << "optval ==" << optval << endl;
-    */
-    // 限制服务器的最大并发连接数
+   
     if (accept_fd >= MAXFDS) {
       close(accept_fd);
       continue;
