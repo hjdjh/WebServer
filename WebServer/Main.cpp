@@ -1,5 +1,4 @@
-// @Author Lin Ya
-// @Email xxbbb@vip.qq.com
+
 #include <getopt.h>
 #include <string>
 #include "EventLoop.h"
@@ -12,7 +11,6 @@ int main(int argc, char *argv[]) {
   int port = 80;
   std::string logPath = "./WebServer.log";
 
-  // parse args
   int opt;
   const char *str = "t:l:p:";
   while ((opt = getopt(argc, argv, str)) != -1) {
